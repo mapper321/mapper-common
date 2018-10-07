@@ -9,7 +9,6 @@
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>common</artifactId>
-	<version>${common.version}</version>
 	<dependencies>
 		<!-- 健康监控 -->
 		<dependency>

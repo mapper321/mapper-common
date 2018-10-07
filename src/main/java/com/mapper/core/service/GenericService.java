@@ -15,7 +15,7 @@ import com.mapper.core.util.BeanUtils;
 
 public abstract class GenericService<T, PK extends Serializable> {
 
-	protected Logger log = LoggerFactory.getLogger(GenericService.class);
+	private Logger log = LoggerFactory.getLogger(GenericService.class);
 
 	protected abstract IEntityDao<T, PK> getEntityDao();
 

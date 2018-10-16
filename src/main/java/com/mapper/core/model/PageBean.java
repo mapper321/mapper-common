@@ -8,7 +8,7 @@ public class PageBean implements Serializable{
 	//第几页
 	private int page = 0;
 	//每页行数
-	private int rows = 0;
+	private int rows = 10;
 	
 	public int getPage() {
 		return page;

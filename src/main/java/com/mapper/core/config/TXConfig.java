@@ -21,7 +21,7 @@ import org.springframework.transaction.interceptor.RuleBasedTransactionAttribute
 import org.springframework.transaction.interceptor.TransactionAttribute;
 import org.springframework.transaction.interceptor.TransactionInterceptor;
 @Configuration
-public class txConfig {
+public class TXConfig {
 	private static final int TX_METHOD_TIMEOUT = 50000;
 	private static final String AOP_POINTCUT_EXPRESSION = "execution(* com.mapper..*Controller.*(..))";
 
@@ -40,11 +40,17 @@ public class txConfig {
 		requiredTx.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
 		requiredTx.setTimeout(TX_METHOD_TIMEOUT);
 		Map<String, TransactionAttribute> txMap = new HashMap<>();
+		//增删改
 		txMap.put("add*", requiredTx);
 		txMap.put("save*", requiredTx);
 		txMap.put("insert*", requiredTx);
 		txMap.put("update*", requiredTx);
 		txMap.put("del*", requiredTx);
+		//增删改（流程）
+		txMap.put("start*", requiredTx);
+		txMap.put("complete*", requiredTx);
+		txMap.put("end*", requiredTx);
+		//查
 		txMap.put("get*", readOnlyTx);
 		txMap.put("list*", readOnlyTx);
 		txMap.put("query*", readOnlyTx);

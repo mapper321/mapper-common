@@ -66,5 +66,8 @@ public class ResultView extends AbstractData implements Serializable {
 	public String toString() {
 		return "ResultView [rows=" + rows + ", total=" + total + ", kvs=" + kvs + "]";
 	}
-
+	
+	public static ResultView ok(){
+		return new ResultView();
+	}
 }

@@ -52,6 +52,7 @@ public class FeignConfig {
         ObjectMapper objectMapper = new ObjectMapper();
         //Customize as much as you want
         objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         return objectMapper;
     }
 }

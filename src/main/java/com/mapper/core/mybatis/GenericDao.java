@@ -78,12 +78,12 @@ abstract class GenericDao<T, PK extends Serializable> implements IEntityDao<T, P
 		//如果rows为0，则不分页返回全部信息
 		ResultView rt = new ResultView();
 		if(pb.getRows()==0) {
-			List<T> selectList = getList(sqlKey,  params);
+			List selectList = getList(sqlKey,  params);
 			rt.setRows(selectList);
 			rt.setTotal(Long.valueOf(selectList.size()));
 		}else {
 			PageHelper.startPage(pb.getPage(), pb.getRows());
-			Page<T> selectList = (Page<T>) sqlSessionTemplate.selectList(statement, params);
+			Page selectList = (Page) sqlSessionTemplate.selectList(statement, params);
 			rt.setRows(selectList.getResult());
 			rt.setTotal(selectList.getTotal());
 		}
